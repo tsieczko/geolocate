@@ -1,0 +1,1 @@
+geo.exec: geo.cpp ; g++ -g geo.cpp -o geo.exec
