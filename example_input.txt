@@ -1,0 +1,3 @@
+NA "UNR" 134.197.11.250
+NA "UC Davis" 128.120.80.78
+NA "University of Houston" 129.7.254.195
