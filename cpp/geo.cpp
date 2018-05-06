@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 
       // parse results
       //string regextest = "asdflkjadslj2 21234 RTT Min/Mean/Max/StdDev = 1.23/4.56/7.89/10.12 sklls 1234";
-      regex pattern("RTT Min/Mean/Max/StdDev = [0-9]*.[0-9]*/[0-9]*.[0-9]*/[0-9]*.[0-9]*/[0-9]*.[0-9]*");
+      regex pattern("RTT Min/Mean/Max/StdDev = [0-9]*.[0-9]*/[0-9]*.[0-9]*/[0-9]*.[0-9]*/[0-9]*.[0-9]*", std::regex_constants::basic);
       std::smatch m;
       cout << regex_search(response, m, pattern) << endl;
       cout << m.str() << endl;
