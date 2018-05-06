@@ -78,6 +78,7 @@ int main(int argc, char** argv)
    }
 
    // return result
+   cout << "The closest node is: " << endl;
    closestNode.printNode();
 
    return 0;
