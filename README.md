@@ -1,4 +1,4 @@
 # geolocate
-Geolocates a target using public perfsonar nodes.
+Geolocates a target using public perfSONAR nodes.
 
-Provide list of nodes and geolocates based on their data.
+Compares a list of nodes with known locations and geolocates a target based on RTT data between the nodes and target node.

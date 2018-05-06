@@ -19,6 +19,5 @@ public:
    void loadFile(const char*);
    void printNodes();
 
-private:
    std::queue<Node> nodes;
 };
