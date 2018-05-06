@@ -46,27 +46,27 @@ int main(int argc, char** argv)
          RTTmin += extractedRTT[i++];
       }
       i++;
-      cout << RTTmin << endl;
+      //cout << RTTmin << endl;
       // get RTTmean
       while (extractedRTT[i] != '/')
       {
          RTTmean += extractedRTT[i++];
       }
       i++;
-      cout << RTTmean << endl;
+      //cout << RTTmean << endl;
       // get RTTmax
       while (extractedRTT[i] != '/')
       {
          RTTmax += extractedRTT[i++];
       }
       i++;
-      cout << RTTmax << endl;
+      //cout << RTTmax << endl;
       // get RTTstddev
       while (i < extractedRTT.length())
       {
          RTTstddev += extractedRTT[i++];
       }
-      cout << RTTstddev << endl;
+      //cout << RTTstddev << endl;
 
       // find the lowest RTT
       if (atof(RTTmean.c_str()) < closestNode.rtt)
@@ -79,7 +79,7 @@ int main(int argc, char** argv)
    }
 
    // return result
-   cout << "The closest node is: " << endl;
+   cout << "\nThe closest node is: " << endl;
    closestNode.printNode();
 
    return 0;
