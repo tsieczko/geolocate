@@ -9,7 +9,7 @@ int main(int argc, char** argv)
    //locations.printNodes();
    std::string targetNodeIP = argv[2];
 
-   while (!locations.nodes.empty())
+   if (!locations.nodes.empty())
    {
       // create commands to send
       // perfsonar task rtt --source 123.123.123.123 --dest 456.456.456.456
@@ -25,9 +25,6 @@ int main(int argc, char** argv)
       {
          response = response + buffer + " ";
       }
-      for (int i=0; i<100; i++)
-         printf("%c", buffer[i]);
-      printf("\n");
       cout << response << endl;
 
 
