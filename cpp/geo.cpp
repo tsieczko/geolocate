@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 
    // create commands to send
    // perfsonar task rtt --source 123.123.123.123 --dest 456.456.456.456
-   std::string command = "perfsonar task rtt --source " + targetNodeIP
+   std::string command = "pscheduler task rtt --source " + targetNodeIP
       + " --dest " + locations.nodes.front().ip;
    //std::cout << command << std::endl;
 
@@ -20,6 +20,7 @@ int main(int argc, char** argv)
 
    // collect results and parse
    pclose(pipe);
+
 
    // find the lowest RTT
 
