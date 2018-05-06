@@ -1,3 +1,6 @@
 NA "UNR" 134.197.11.250
 NA "UC Davis" 128.120.80.78
-NA "University of Houston" 129.7.254.195
+NA "UC Riverside" 138.23.107.194
+NA "University of Utah" 155.101.8.29
+NA "Tuscon" 206.207.252.45
+NA "Center for Atmospheric Research Boulder Colorado" 128.117.212.249

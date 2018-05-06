@@ -39,7 +39,7 @@ int main(int argc, char** argv)
       string RTTmin, RTTmean, RTTmax, RTTstddev;
       int i = 26;
       // get RTTmin
-      while (extractedRTT[i] != '/')
+      while (extractedRTT[i] != '/' | i>100)
       {
          RTTmin += extractedRTT[i++];
       }
