@@ -8,16 +8,17 @@ int main(int argc, char** argv)
    locations.loadFile(argv[1]);
    //locations.printNodes();
    std::string targetNodeIP = argv[2];
+   Node closestNode;
 
    if (!locations.nodes.empty())
    {
-      // create commands to send
-      // perfsonar task rtt --source 123.123.123.123 --dest 456.456.456.456
+      // create commands to send to perfsonar pscheduler
+      // pscheduler task rtt --source 123.123.123.123 --dest 456.456.456.456
       std::string command = "pscheduler task rtt --source " + targetNodeIP
          + " --dest " + locations.nodes.front().ip;
-      std::cout << "Sending command: " << command << std::endl;
+      std::cout << "\nSending command: " << command << std::endl;
 
-      // send commands to perfsonar
+      // send commands to perfSONAR
       FILE* pipe = popen(command.c_str(), "r");
       char buffer[1000]={0};
       string response;
@@ -26,18 +27,58 @@ int main(int argc, char** argv)
          response = response + buffer + " ";
       }
       cout << response << endl;
-
-
-
-      // collect results and parse
       pclose(pipe);
 
+      // parse results
+      //string regextest = "asdflkjadslj2 21234 RTT Min/Mean/Max/StdDev = 1.23/4.56/7.89/10.12 sklls 1234";
+      regex pattern("RTT Min/Mean/Max/StdDev = [0-9]*.[0-9]*/[0-9]*.[0-9]*/[0-9]*.[0-9]*/[0-9]*.[0-9]*");
+      std::smatch m;
+      cout << regex_search(response, m, pattern) << endl;
+      cout << m.str() << endl;
+      string extractedRTT = m.str();
+      //cout << extractedRTT[25] << endl;
+      string RTTmin, RTTmean, RTTmax, RTTstddev;
+      int i = 26;
+      // get RTTmin
+      while (extractedRTT[i] != '/')
+      {
+         RTTmin += extractedRTT[i++];
+      }
+      i++;
+      cout << RTTmin << endl;
+      // get RTTmean
+      while (extractedRTT[i] != '/')
+      {
+         RTTmean += extractedRTT[i++];
+      }
+      i++;
+      cout << RTTmean << endl;
+      // get RTTmax
+      while (extractedRTT[i] != '/')
+      {
+         RTTmax += extractedRTT[i++];
+      }
+      i++;
+      cout << RTTmax << endl;
+      // get RTTstddev
+      while (i < extractedRTT.length())
+      {
+         RTTstddev += extractedRTT[i++];
+      }
+      cout << RTTstddev << endl;
+
       // find the lowest RTT
+      if (atof(RTTmean.c_str()) < closestNode.rtt)
+      {
+         closestNode = locations.nodes.front();
+         closestNode.rtt = atof(RTTmean.c_str());
+      }
 
       locations.nodes.pop();
    }
 
    // return result
+   closestNode.printNode();
 
    return 0;
 }

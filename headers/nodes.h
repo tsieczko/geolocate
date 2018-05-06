@@ -3,6 +3,13 @@
 class Node
 {
 public:
+   Node();
+   Node(const Node&);
+   ~Node();
+
+   void printNode();
+
+public:
    std::string region;
    std::string location;
    std::string ip;

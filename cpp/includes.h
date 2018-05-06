@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <queue>
+#include <regex>
 
 #ifndef NODES
 #define NODES

@@ -1,5 +1,28 @@
 #include "includes.h"
 
+Node::Node()
+{
+   rtt = 10e20;
+}
+
+Node::Node(const Node&)
+{
+
+}
+
+Node::~Node()
+{
+
+}
+
+void Node::printNode()
+{
+   std::cout << "Region:\t" << region << std::endl;
+   std::cout << "Location:\t" << location << std::endl;
+   std::cout << "IP:\t" << ip << std::endl;
+   std::cout << "RTT:\t" << rtt << " ms" << std::endl;
+}
+
 Nodes::Nodes()
 {}
 
