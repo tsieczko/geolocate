@@ -23,7 +23,7 @@ public:
    Nodes(const Nodes&);
    ~Nodes();
 
-   void loadFile(const char*);
+   void loadFile(std::string);
    void printNodes();
 
    std::queue<Node> nodes;

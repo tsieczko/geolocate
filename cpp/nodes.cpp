@@ -2,18 +2,22 @@
 
 Node::Node()
 {
+   region = "default";
+   location = "default";
+   ip = "default";
    rtt = 10e20;
 }
 
-Node::Node(const Node&)
+Node::Node(const Node& in)
 {
-
+   region = in.region;
+   location = in.location;
+   ip = in.ip;
+   rtt = in.rtt;
 }
 
 Node::~Node()
-{
-
-}
+{}
 
 void Node::printNode()
 {
@@ -26,16 +30,22 @@ void Node::printNode()
 Nodes::Nodes()
 {}
 
-Nodes::Nodes(const Nodes&)
-{}
+Nodes::Nodes(const Nodes& in)
+{
+   nodes = in.nodes;
+}
 
 Nodes::~Nodes()
 {}
 
-void Nodes::loadFile(const char* fileName)
+void Nodes::loadFile(std::string fileName)
 {
    std::fstream file;
    file.open(fileName, std::fstream::in);
+   if (!file.is_open())
+   {
+      std::cerr << "Error reading input file" << std::endl;
+   }
    char temp[100] = {0};
    while (1)
    {

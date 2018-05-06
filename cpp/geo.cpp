@@ -6,11 +6,12 @@ int main(int argc, char** argv)
    // read list of nodes
    Nodes locations;
    locations.loadFile(argv[1]);
-   //locations.printNodes();
+   locations.printNodes();
    std::string targetNodeIP = argv[2];
    Node closestNode;
 
    if (!locations.nodes.empty())
+   //if (0)
    {
       // create commands to send to perfsonar pscheduler
       // pscheduler task rtt --source 123.123.123.123 --dest 456.456.456.456
