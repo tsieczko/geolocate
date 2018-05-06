@@ -10,14 +10,13 @@ int main(int argc, char** argv)
    std::string targetNodeIP = argv[2];
    Node closestNode;
 
-   if (!locations.nodes.empty())
-   //if (0)
+   while (!locations.nodes.empty())
    {
       // create commands to send to perfsonar pscheduler
       // pscheduler task rtt --source 123.123.123.123 --dest 456.456.456.456
       std::string command = "pscheduler task rtt --source " + targetNodeIP
          + " --dest " + locations.nodes.front().ip;
-      std::cout << "\nSending command: " << command << std::endl;
+      cout << "\nSending command: " << command << endl << endl;
 
       // send commands to perfSONAR
       FILE* pipe = popen(command.c_str(), "r");
