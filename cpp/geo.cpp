@@ -14,8 +14,7 @@ int main(int argc, char** argv)
    {
       // create commands to send to perfsonar pscheduler
       // pscheduler task rtt --source 123.123.123.123 --dest 456.456.456.456
-      std::string command = "pscheduler task rtt --source " + targetNodeIP
-         + " --dest " + locations.nodes.front().ip;
+      std::string command = "pscheduler task rtt --source " + locations.nodes.front().ip + " --dest " + targetNodeIP;
       cout << "\nSending command: " << command << endl << endl;
 
       // send commands to perfSONAR

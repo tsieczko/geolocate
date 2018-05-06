@@ -77,6 +77,7 @@ void Nodes::printNodes()
       std::cout << "Region: " << temp.front().region << std::endl;
       std::cout << "Location: " << temp.front().location << std::endl;
       std::cout << "IP: " << temp.front().ip << std::endl;
+      std::cout << std::endl;
       temp.pop();
    }
 }
