@@ -17,7 +17,9 @@ int main(int argc, char** argv)
       std::string command = "pscheduler task rtt --source " + locations.nodes.front().ip + " --dest " + targetNodeIP;
       cout << "\nSending command: " << command << endl << endl;
       cout << "Node: \n" << endl;
-      locations.nodes.front().printNode();
+      cout << "Region:\t\t" << locations.nodes.front().region << endl;
+      cout << "Location:\t" << locations.nodes.front().location << endl;
+      cout << "IP:\t" << locations.nodes.front().ip << endl;
 
       // send commands to perfSONAR
       FILE* pipe = popen(command.c_str(), "r");
