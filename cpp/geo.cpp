@@ -29,7 +29,7 @@ int main(int argc, char** argv)
       {
          response = response + buffer + " ";
       }
-      cout << response << endl;
+      //cout << response << endl;
       pclose(pipe);
 
       // parse results
