@@ -33,10 +33,10 @@ int main(int argc, char** argv)
       pclose(pipe);
 
       // parse results
-      //string regextest = "asdflkjadslj2 21234 RTT Min/Mean/Max/StdDev = 1.23/4.56/7.89/10.12 sklls 1234";
       regex pattern("RTT Min/Mean/Max/StdDev = [0-9]*.[0-9]*/[0-9]*.[0-9]*/[0-9]*.[0-9]*/[0-9]*.[0-9]*");
       std::smatch m;
-      cout << regex_search(response, m, pattern) << endl;
+      //cout << regex_search(response, m, pattern) << endl;
+      regex_search(response, m, pattern);
       cout << m.str() << endl;
       string extractedRTT = m.str();
       //cout << extractedRTT[25] << endl;
@@ -48,27 +48,23 @@ int main(int argc, char** argv)
          RTTmin += extractedRTT[i++];
       }
       i++;
-      //cout << RTTmin << endl;
       // get RTTmean
       while (extractedRTT[i] != '/')
       {
          RTTmean += extractedRTT[i++];
       }
       i++;
-      //cout << RTTmean << endl;
       // get RTTmax
       while (extractedRTT[i] != '/')
       {
          RTTmax += extractedRTT[i++];
       }
       i++;
-      //cout << RTTmax << endl;
       // get RTTstddev
       while (i < extractedRTT.length())
       {
          RTTstddev += extractedRTT[i++];
       }
-      //cout << RTTstddev << endl;
 
       // find the lowest RTT
       if (atof(RTTmean.c_str()) < closestNode.rtt)
@@ -81,7 +77,7 @@ int main(int argc, char** argv)
    }
 
    // return result
-   cout << "\nThe closest node is: " << endl;
+   cout << "\nThe closest node to " << targetNodeIP << " is: " << endl;
    closestNode.printNode();
 
    return 0;
