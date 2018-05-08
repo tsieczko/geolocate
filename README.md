@@ -8,7 +8,6 @@ Compares a list of nodes with known locations and geolocates a target based on R
 REGION "LOCATION" IP
 
 example:
-
 ```
 NA "UNR" 134.197.11.250
 NA "UC Davis" 128.120.80.78
