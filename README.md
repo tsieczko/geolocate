@@ -9,8 +9,10 @@ REGION "LOCATION" IP
 
 example:
 
-`NA "UNR" 134.197.11.250`
-`NA "UC Davis" 128.120.80.78`
+```
+NA "UNR" 134.197.11.250
+NA "UC Davis" 128.120.80.78
+```
 
 
 ## Usage example:
