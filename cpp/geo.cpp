@@ -6,7 +6,7 @@ int main(int argc, char** argv)
    // read list of nodes
    Nodes locations;
    locations.loadFile(argv[1]);
-   locations.printNodes();
+   //locations.printNodes();
    std::string targetNodeIP = argv[2];
    Node closestNode;
 
@@ -15,11 +15,11 @@ int main(int argc, char** argv)
       // create commands to send to perfsonar pscheduler
       // pscheduler task rtt --source 123.123.123.123 --dest 456.456.456.456
       std::string command = "pscheduler task rtt --source " + locations.nodes.front().ip + " --dest " + targetNodeIP;
-      cout << "\nSending command: " << command << endl << endl;
-      cout << "Node:" << endl;
+      cout << "\n-Current Node-" << endl;
       cout << "Region:\t\t" << locations.nodes.front().region << endl;
       cout << "Location:\t" << locations.nodes.front().location << endl;
       cout << "IP:\t" << locations.nodes.front().ip << endl;
+      cout << "\nSending command: " << command << endl;
 
       // send commands to perfSONAR
       FILE* pipe = popen(command.c_str(), "r");
