@@ -18,7 +18,7 @@ int main(int argc, char** argv)
       cout << "\n-Current Node-" << endl;
       cout << "Region:\t\t" << locations.nodes.front().region << endl;
       cout << "Location:\t" << locations.nodes.front().location << endl;
-      cout << "IP:\t" << locations.nodes.front().ip << endl;
+      cout << "IP:\t\t" << locations.nodes.front().ip << endl;
       cout << "\nSending command: " << command << endl;
 
       // send commands to perfSONAR
